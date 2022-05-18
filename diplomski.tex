@@ -4,13 +4,13 @@
 \begin{document}
 
 % TODO: Navedite broj rada.
-\thesisnumber{000}
+\thesisnumber{2927}
 
 % TODO: Navedite naslov rada.
-\title{Naslov}
+\title{Izrada upravljačkih programa za ugradbene uređaje u tehnologiji modernog C++-a}
 
 % TODO: Navedite vaše ime i prezime.
-\author{Arthur Dent}
+\author{Hrvoje Bolešić}
 
 \maketitle
 
@@ -22,11 +22,15 @@
 
 \tableofcontents
 
-\chapter{Uvod}
-Uvod rada. Nakon uvoda dolaze poglavlja u kojima se obrađuje tema.
+\include{introduction}
 
-\chapter{Zaključak}
-Zaključak.
+\include{modern_vs_old}
+
+\include{my_benchmark}
+
+\include{results}
+
+\include{conclusions}
 
 \bibliography{literatura}
 \bibliographystyle{fer}
@@ -34,7 +38,7 @@ Zaključak.
 \begin{sazetak}
 Sažetak na hrvatskom jeziku.
 
-\kljucnerijeci{Ključne riječi, odvojene zarezima.}
+\kljucnerijeci{C++, C, Ugradbeni uređaj, Programska potpora, Upravljački program, Moderne thenologije}
 \end{sazetak}
 
 % TODO: Navedite naslov na engleskom jeziku.
@@ -42,7 +46,7 @@ Sažetak na hrvatskom jeziku.
 \begin{abstract}
 Abstract.
 
-\keywords{Keywords.}
+\keywords{C++, C, Embedded device, Software, Device driver, Modern technology}
 \end{abstract}
 
 \end{document}
