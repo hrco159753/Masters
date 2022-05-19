@@ -1,5 +1,14 @@
 \documentclass[times, utf8, diplomski]{fer}
 \usepackage{booktabs}
+\usepackage{etoolbox}
+
+% Define labeled quote.
+\newcounter{numquote}
+\newenvironment{lquote}[1]{%
+  \stepcounter{numquote}%
+  \expandafter\xdef\csname#1\endcsname{\fbox{\thenumquote}}%
+  \quote``\ignorespaces}{\unskip''\fbox{\thenumquote}\endquote}
+\newcommand\quoteref[1]{\csname#1\endcsname}
 
 \begin{document}
 

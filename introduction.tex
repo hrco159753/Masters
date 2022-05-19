@@ -1,8 +1,21 @@
 \chapter{Uvod}
-Uvod rada. Nakon uvoda dolaze poglavlja u kojima se obrađuje tema.
+
+Sve je bitnije proizvesti bolji i kvalitetniji softver. Svaki korisnik želi što bolju moguću aplikaciju, iako je definicja \textit{"što je bolje"} drugačija za svakog pojedinca, nerijetko uključuje efikastnost kao jedan od glavnih parametara. Uz sve napore struke činjenica je ta da je softver sve manje efikasan iako, prema \textit{Moore}-ovom zakonu\engl{Moore's Law}\cite{mooresLaw}, bi trebalo biti baš obrnuto. \textit{Moore}-ov zakon govori o tome kako se broj tranzistora u integriranim krugovima\engl{Integrated Circuits, IC} udvostručava svake dvije godine. Iz toga bi bilo logično zaključiti kako sami integrirani krugovi postaju efikasniji i time da i programi izvršavani na njima bivaju također efikasniji. Na žalost, nije toliko jednostavno, u stvarnosti ispada da iako hardver postaje efikasniji, softver je sve manje efikasan. O tome govori, tzv., \textit{Wirth}-ov zakon, koji govori kako brzina software pada više no što brzina hardvera raste. \textit{Wirth}-ov zakon:
+\begin{quote}
+    ``Brzina softvera se smanjuje više nego što brzina hardvera raste.''\cite{wirthsLaw} \\
+    \engl{``Software is getting slower more rapidly than hardware is getting faster.''}
+\end{quote}
+Dodatno, ne govori samo o brzini softvera već i o njegovoj kompleksnosti koja višestruko raste u usporedbi s kompleksnosti hardvera. Objašnjenje zašto se ovo događa leži u činjenici kako današnje aplikacije nude funkcionalnosti koje nisu striktno vezane za glavnu funkcionalnost prvotne aplikacije. Tako na primjer, danas će mnogi uređivači teksta zahtjevati internetsku vezu iako sama primarna funkcionalnost uređivanja teksta nema potrebu za internetskom vezom. Ovo je tipičan primjer gdje aplikacija nudi dodatne funkcionalnosti koje imaju dodatne ovisnosti, konkretno u primjeru internetsku vezu, i time uvode dodatnu kompleksnost u izradu samog proizvoda na benefit korisnika koji dobiva više mogućnosti. Samim uvođenjem dodatnih mogućnosti krajnji proizvod postaje memorijski, a vrlo često i procesivno zahtjevniji. \\ 
+
+Dodatna i možda bitnija činjenica zašto softver postaje sve kompleksniji je obilje, često specijaliziranog, hardvera dostupnog za korištenje unutar aplikacija. Poznato je kako smo pred krajem \textit{Moore}-ova zakona, odnosno činjenicom da se tranzistori više neće moći fizički smanjiti kako bi se mogao udvostručiti broj tranzistora na jednom integriranom krugu. Buduća ubrzanja su jedino moguća tako da se posao raspodijeli na više procesora, odnosno, došli smo do samih limita što je moguće ostvariti na jednom procesoru. Samim time logično je očekivati samo još više specijaliziranih IC-ova unutar budućih platformi kako bi se koristili za izradu aplikacija. Direktna je implikacija da će softver time biti još kompleksniji, što je i za očekivati po \textit{Wirth}-ovom zakonu. \\ 
+
+Pitanje je \textit{"Kako se boriti sa kompleksnošću?"}, \textit{"Da li je moguće potpuno elimirati kompleksnost?"}. Na žalost, iskustva pokazuju da je kompleksnost nužna, odnosno moderan softver zahtjeva kompleksna rješenja. Međutim, struka je razvila alate koji mogu pomoći oko kompleksnosti. Do sada vjerojatno najbolji alat za suzbijanje komplesknosti mora biti \textbf{abstrakcija}\engl{Abstraction}. Iako se pojam abstrakcije gotovo uvijek spominje u kontesktu Objektno orjentiranog programiranja\engl{Object Oriented Programing, OOP}, sami koncept nije nužno vezan samo za OOP, međutim nedvojbeno je da koncept ima svoje začetke u Objektno orjentiranoj paradigmi\engl{Object oriented paradigm}. Abstrakcija je proces izgradnje jednostavnijeg modela kompleksnih jedinica tako da sadrži dovoljno informacije za ispunjenje zadatka u određenom kontekstu. \\   
+
+Od dva navedena razloga koja objašnjavaju zašto \textit{Writh}-ov zakon vrijedi, prvi se za konektst ovog diplomskog rada može zanemariti i protumačiti kao tzv. \textit{Code Bloat}, odnosno kompleksnost koja je uvedena zbog dodavanja "nepotrebnog" koda. Drugi razlog je mnogo interesantniji i intrigantniji jer se radi o problemu tehničke naravi, ključnim za ovaj diplomksi rad. Kako je predhodno rečeno razlog povečanja kompleksnosti softvera je dodavanje specijaliziranog hardvera za kojeg je najčešće potrebno izgraditi upravljački program. Konkretno ovaj diplomski rad promatra kako se nositi sa kompleksnosti i izazovima izrade upravljačkih programa na ugradbenim uređajima. Činjenica o tome da softvare generalno postaje kompleksniji je najviše vidljiva upravo u domeni ugradbenih uređaja, pogotvo tamo gdje se pokušava izgraditi generično riješenje. 
+\pagebreak
 
 \section{Što je ugradbeni uređaj?}
-Ugradbeni uređaj je ...
+
 
 \section{Što je upravljački program?}
 Upravljački program je ...
