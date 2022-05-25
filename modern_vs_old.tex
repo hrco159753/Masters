@@ -1,7 +1,268 @@
 \chapter{Moderne tehnologije u programskoj potpori za ugradbene računalne sustave}
-Stanje danas u razvoju programske potpore za ugradbene sustave je takvo da je još uvijek daleko najpopularnija tehnologija programski jezik C. O ovoj činjnici govori \textit{Dan Saks} u svojoj konferenciskoj prezentaciji\cite{danSaksWritingBetterEmbeddedSoftware}, gdje jasno prikazuje trendove najpopularnijih tehnologija u domeni ugradbenih uređaja gdje C neupitno prednjači nad bilo kojom drugom tehnologijom. Gledajući retrospektivno kroz povijest može se naslutiti zašto je i danas, u 2022. godini, tehnologija izbora mnogih inženjera u domeni ugradbenih uređaja još uvijek programski jezik C, jednostavno povijesno gledano C je bio dugo vremena prisutan i ustalio se u inženjerskoj praksi kao jedini pravi odgovor. Toliko se ustalio u inženjerskom poslu da ga inženjeri diljem svijeta, u različitim domenama, nazivaju \textit{Lingua Franca}. Dodatno, iz tehničke perspektive, programski jezik C je savršeno dizajniran tako da inženjer ima potpunu kontrolu nad svojim programom, te ostavlja vrlo malo prostora za neku drugu tehnologiju, osim možda asemblerskog koda platforme, uz to postoji i C prevodilac za gotovo svaku postojeću platformu. Postoji ogromna količina softvera napisanih u programskom jeziku C, a neki su i napisani kako bi pospiješili produktivnost samo jezika. Gotovo svi popularni operacijski sustavi danas svoje jezgre imaju razvijene uz pomoć C-a, što direktno povlači i činjenicu da postoji potražnja za C programerima. Programski jezik C je fenomen u računarskoj povijesti i vjerojatno će još dugo vremena biti "zajednički nazivnik" svih tehnologija u računarstvu. Možda najveći razlog zašto C neće tako skoro biti zamjenjen nekom drugom tehnologijom je dizajnerska odluka jezika da jezik vjerno prikazuje platformu na kojoj se izvršava. Ukoliko ništa od navedenog ne uvjerava čitatelja kako jezik C tu da ostane, onda je tu činjenica da nove generacije inženjera ne mogu ništa izgubiti s poznavanjem programskog jezika C, što znači da je moguće da će u budućnosti biti korišten u obrazovne svrhe. \\
-Sa svim tim rečenim, programski jezik C ima mane i ovaj diplomski rad smatra kako postoje bolje, moderne, alterntive u pojedinim kontekstima. Ne opovrgava kako je programski jezik C validan izbor u mnogim slučajevima, međutim tvrdi da mnogi programeri koji danas koriste C, za svoj trenutni projekt bi trebali koristiti nešto drugo, nešto modernije. Također, prije prelaska u raspravu o modernim tehnologijama, vrijedi napomentuti kako programski jezik C nije jedina starija tehnologija korištena u domeni ugradbenih uređaja, ali je toliko dominantna da se može ugrubo reći da je jedina. Za kontekst ovog rada možemo reći kako je programski jezik C predstavnik starih tehnologija za razvoj programske podrške u domeni ugradbenih uređaja. Moderne tehnologije su zasnovane na prijašnjima kao što je to uvijek istina u inženjerskoj praksi - iteriranjem nad starim idejama dolazimo do novih. Kao i za stare tehnologije, kako bi se olakšala rasprava, za svrhu ovog diplomskog rada odabran je predstavnik modernih tehnologija, očekivano, programski jezik C++, odnosno moderna inačica jezika C++. Ovaj odabir nije slučajan, već je izabran iz razloga što je druga najpopularnija tehnologija navedena u konferenciskoj prezentacija \textit{Dan Saks}-a\cite{danSaksWritingBetterEmbeddedSoftware} upravo programski jezik C++. Iako možda izgleda šaljivo, kroz ovaj diplomski rad pokušati će se prezenirati izazovi i rješenja modernih tehnologija u izradi upravljakih programa u ugradbenim uređajima tako što će se uspoređivati odabrani predstavnici starih i novih tehnologija, programski jezik C i C++. Ovo je napravljeno kako bi se pokušalo doći do konkretnih problema i rješenja koja konkretna moderna tehnologija, ovdje C++, rješava. Osim programskog jezika C++ kao predstavnika modernih tehnologija, vrijedi spomenuti vrlo obečavajuću modernu tehnologiju, programski jezik Rust, koja se predstavlja kao tehnologija koja će zamjeniti programski jezik C. 
+Stanje danas u razvoju programske potpore za ugradbene sustave je takvo da je još uvijek daleko najpopularnija tehnologija programski jezik C. O ovoj činjnici govori \textit{Dan Saks} u svojoj konferenciskoj prezentaciji\cite{danSaksWritingBetterEmbeddedSoftware}, gdje jasno prikazuje trendove najpopularnijih tehnologija u domeni ugradbenih uređaja gdje C neupitno prednjači nad bilo kojom drugom tehnologijom. Gledajući retrospektivno kroz povijest može se naslutiti zašto je i danas, u 2022. godini, tehnologija izbora mnogih inženjera u domeni ugradbenih uređaja još uvijek programski jezik C, jednostavno povijesno gledano C je bio dugo vremena prisutan i ustalio se u inženjerskoj praksi kao jedini pravi odgovor. Toliko se ustalio u inženjerskom poslu da ga inženjeri diljem svijeta, u različitim domenama, nazivaju \textit{Lingua Franca}. Dodatno, iz tehničke perspektive, programski jezik C je savršeno dizajniran tako da inženjer ima potpunu kontrolu nad svojim programom, te ostavlja vrlo malo prostora za neku drugu tehnologiju, osim možda asemblerskog koda platforme, uz to postoji i C prevodilac za gotovo svaku postojeću platformu. Postoji ogromna količina softvera napisanih u programskom jeziku C, a neki su i napisani kako bi pospiješili produktivnost samo jezika. Gotovo svi popularni operacijski sustavi danas svoje jezgre imaju razvijene uz pomoć C-a, što direktno povlači i činjenicu da postoji potražnja za C programerima. Programski jezik C je fenomen u računarskoj povijesti i vjerojatno će još dugo vremena biti "zajednički nazivnik" svih tehnologija u računarstvu. Možda najveći razlog zašto C neće tako skoro biti zamjenjen nekom drugom tehnologijom je dizajnerska odluka jezika da jezik vjerno prikazuje platformu na kojoj se izvršava. Ukoliko ništa od navedenog ne uvjerava čitatelja kako je jezik C tu da ostane, onda je tu činjenica da nove generacije inženjera ne mogu ništa izgubiti s poznavanjem programskog jezika C, što znači da je moguće da će u budućnosti biti korišten u obrazovne svrhe. \\
+Sa svim tim rečenim, programski jezik C ima mane i ovaj diplomski rad smatra kako postoje bolje, modernije alterntive u pojedinim kontekstima. Ne opovrgava kako je programski jezik C validan izbor u mnogim slučajevima, međutim tvrdi da mnogi programeri koji danas koriste C, za svoj trenutni projekt bi trebali koristiti nešto drugo, nešto modernije. Također, prije prelaska u raspravu o modernim tehnologijama, vrijedi napomentuti kako programski jezik C nije jedina starija tehnologija korištena u domeni ugradbenih uređaja, ali je toliko dominantna da se može ugrubo reći da i je jedina. Za kontekst ovog rada možemo reći kako je programski jezik C predstavnik starih tehnologija za razvoj programske podrške u domeni ugradbenih uređaja. \\
+Moderne tehnologije, kako to obično biva u inženjerskoj praksi, su zasnovane na prijašnjim tehnologijama - iteriranjem nad starim idejama dolazimo do novih. Kao i za stare tehnologije, kako bi se olakšala rasprava, za svrhu ovog diplomskog rada odabran je predstavnik modernih tehnologija, očekivano, programski jezik C++, odnosno moderna inačica jezika C++. Ovaj odabir nije slučajan, već je izabran iz razloga što je druga najpopularnija tehnologija navedena u konferenciskoj prezentacija \textit{Dan Saks}-a\cite{danSaksWritingBetterEmbeddedSoftware} upravo programski jezik C++. Iako možda izgleda šaljivo, kroz ovaj diplomski rad pokušati će se prezenirati izazovi i rješenja modernih tehnologija u izradi upravljačkih programa u ugradbenim uređajima tako što će se uspoređivati odabrani predstavnici starih i novih tehnologija, programski jezik C i C++. Ovo je napravljeno kako bi se pokušalo doći do konkretnih problema i rješenja koja konkretna moderna tehnologija, ovdje C++, rješava. Osim programskog jezika C++ kao predstavnika modernih tehnologija, vrijedi spomenuti vrlo obečavajuću modernu tehnologiju, programski jezik Rust, koja se predstavlja kao tehnologija koja će zamjeniti programski jezik C. \\
+C++, kao predstavnik modernih tehnologija, ima sve funkcionalnosti programskog jezika C, međutim dodatno pruža jezične mehanizme kojima korisnici mogu izgraditi domenske, "zero-overhead" abstrakcije. Ovo je glavna odrednica modernih tehnologija u odnosu na stare, više mogućnosti abstrakcije bez pesimizacije nad vremenskom i prostornom složenošću. Samim uvođenjem abstrakcija u izvorni kod smanjuje se direktna kompleksnost s kojom se inženjer treba nositi, međutim sveopća kompleksnost programa se dakako povećava, međutim bez uporabe abstrakcija kompleksnost bi bila mnogo veća nego bez njih. Činjenica da se u program uvodi abstrakcija direktno implicira da se samo ponašanje sakriva iza njih što mnogi inženjeri domene ugradbenih uređaja tumače kao negativnu posljedicu. Ovo je možda glavni razlog zašto moderne tehnologije još uvijek nemaju zamaha u domeni ugradbenih uređaja.
 
 \section{Potrebe modernih sustava}
+Optimalno svaki korisnik bi htio dobiti proizvod koji ne koša ništa, a radi sve i to u bilo kakvim uvijetima, međutim to je nerealno i naivno. Stvarnost je ipak takva da se proizvod dizajnira po uporabi, odnosno korisničkim zahtjevima. To vrijedi i u domeni ugradbenih uređaja i više nego u generičkom računarstvu na klasičnim računalima, jer u parametre sustava u domeni ugradbenim uređaja ulaze i parametri okoline. Mnogi ugradbeni uređaji moraju uzeti u obzir parametre okoline u kojoj je predviđeno da rade. Tako npr. ugradbeni uređaj koji je dizajniran za mjerenje temperature kotla nuklearne elektrane mora uzeti u obzir, naravno, visoku temperaturu i dodatno određene razine radijacije koja bi mogla ometati rad uređaja. Ovo je samo primjer parametara o kojima inženjeri klasičnog računarstva gotovo nikad ne moraju razmišljati, međutim to je svakodnevnica u domeni ugradbenih sustava. Jedan od glavnih parametara u doemni ugradbenih uređaja je možda vijek trajanja baterije iz koje se sam uređaj napaja. Svi navedeni parametri dodaju kompleksnost u izradu samog proizvoda, a time i samog softvera. Kroz povijest softver ugradbenih uređaja je bio nadasve jednostavan, većinom zato što nije bilo očekivanja ni želje da ugradbeni uređaji imaju kompleksnije funkcionalnosti. Odnosno, čak i da je imalo želje za time, jednostavno ugradbeni uređaji tada nisu bili u poziciji osigurati nikakve kompleksnije funkcionalnosti. Današnja očekivanja su puno drugačija, veliki problem softvera danas je taj da je generalna percepcija da je softver lagano izmjeniti i modificrati. Ovo je istina za manje projekte gdje je modifikacija softvera relativno jednostavna, međutim već za imalo veće projekte vrlo je teško modificirati postojeći softver koji nije bio namjenjen za modifikaciju bez uvođenja grešaka. Dodatno, iako su očekivanja za softver ugradbenih uređaja porasla još uvijek se softver ugradbenog uređaja smatra jednostvanim, što je nadasve kriva pretpostvka. Točno je kako softver rađen za točno specijaliziran uređaj može biti jednostavan, međutim nakon izrade specijaliziranog softvera za specifičan uređaj taj softver nije ponovno upotrijebiv za niti jedan drugi, što je veliki propust i kosi se sa ustaljenom inženjerskom praksom. \\
+Moderni sustavi zahtjevaju izgradnju ponovno uporabljivog softvera sa mogućnosti izgradnje programa za specifičan uređaj kao da je sam program građen specifično za taj uređaj. Ovaj zahtjev je ono što je generalno teško postići u domeni računarstva upotpunosti, međutim to ne znači da ne bi trebali težiti ka tom cilju. Stari alati poput programskog jezika C definitivno omogućavaju izgradnju specijaliziranog softvera za pojedini uređaj, međutim nemaju mehanizme koji se mogu usporediti s mehanizmima modernih tehnologija koje omogućavaju izgradnju ponovno upotrebljivog softvera za druge ugradbene uređaje. Jednostavno rečeno, moderne tehnologije su podobnije za izradu knjižnica i razvojnih okruženja, koji su po definiciji ponovno upotrebljivi, nego bilo koja stara tehnologija. Ovo ne znači kako nitko više ne smije koristiti programski jezik C nego da je potrebno koristiti pravi alat za posao\engl{Right tool for the right job}. 
 
 \section{Usporedba tehnologija}
+Programski jezik C++, kao predstavnik modernih tehnologija, pokriva sve funkcionalonsti koje programski jezik C nudi, dakle nema smisla navoditi sve mehanizme koje moderne i stare tehnologije djele jer je to tako već dugi niz godina te će se ovaj diplomski rad baviti onim funkcionalnostima koje moderne tehnologije, C++, nude. Generalno gledano sposobnost kreiranja korisničkih abstrakcija je ono što C++ nudi dodatno uz sve što C nudi, međutim vrijedi konkretno prodiskutirati točne mehanizme koje programski jezik C++ nudi kako bi se izgradile korisničke abstrakcije. 
+
+\subsection{Deterministična kostrukcija i destrukcija}
+Vrlo kontroverzan mehanizam u skupinama C programera je definitivno deterministička konstrukcija i destrukcija, odnosno u C++ zajednici ovaj mehanizam se često oslovljava sa kraticom \textbf{RAII}\engl{Resource Acquisition Is Initialization}. Radi se o mehanizmu koji služi za automatsko stjecanje i odpuštanje resursa, poput dinamičke memorije, datotečnih opisnika, mrežnih socket-a, itd. Kontroverzan je u krugovima C programera jer sakriva ponašanje, odnosno prevodilac automatski generira kod koji nije eksplicitno napisan u izvornom kodu. Zvuči kao opravdana zabrinutost, nitko ne želi da mu pervodilac izgenerira nešto što mu inženjer nije naložio, međutim prevodilac će izgenerirati samo ono što je inženjer zatražio samo što taj izvorni kod nije vidljiv na mjestu na kojem je kod zapravo izgeneriran. Da pobliže objasnimo o čemu je riječ pogledajmo slijedeći primjer napisan u programskom jeziku C:
+
+\lstset{language=C, tabsize=2, frame=single, breaklines=true}
+\begin{lstlisting}
+#include <stdlib.h>
+
+int main()
+{
+    int* a = (int*)malloc(sizeof(int));
+    *a = 2;
+    return *a;
+}
+\end{lstlisting}
+Gore navedeni primjer izgleda kao potpuno ispravni i validni C program, međutim, iskusni inženjeri će uočiti pogrešku koja može dovesti do problema, a to je ne oslobađanje dinamički alocirane memorije. Memorija alocirana sa \textbf{\textit{malloc}} mora nužno biti dealocirana sa pozivom funkcije \textbf{\textit{free}} kojoj se mora predati pokazivač koji je inicijaliziran adresom alocirane memorije. Ukoliko se ovo ne napravi dolazi do curenja memorije\engl{Memory leak} i može, u ekstremnim slučajevima, dovesti do rušenja cijelog programa. Isti program također je validan C++ program, međutim smjernice modernog C++ bi savjetovale korištenje pametnih pokazivača\engl{Smart pointers} umjesto manualne manipulacije nad sirovim pokazivačima\engl{Raw pointers}. Pravilan C/C++ kod bi izgledao ovako:   
+\lstset{language=C, tabsize=2, frame=single, breaklines=true}
+\begin{lstlisting}
+#include <stdlib.h>
+
+int main()
+{
+    int* a = (int*)malloc(sizeof(int));
+    *a = 2;
+    int b = *a;
+    free(a);
+
+    return b;
+}
+\end{lstlisting}
+Dok bi siguran i preporučen kod u modernom C++ izgledao ovako:
+\lstset{language=C++, tabsize=2, frame=single, breaklines=true}
+\begin{lstlisting}
+#include <memory>
+
+int main()
+{
+    std::unique_ptr<int> a = std::make_unique<int>(2);
+    return *a;
+}
+\end{lstlisting}
+U ovom slučaju koristi se razred \textbf{\textit{std::unique\_ptr<int>}} koji će na kraju funkcije(nakon \textbf{\textit{return}}) dealocirati prije alociranu memoriju. Također vidljiva je još jedan smjernica modernog C++, a to je da se ne alocira memorija direktno u korisničkom kodu, odnosno vidljivo je ovdje da nema direktnog poziva \textbf{\textit{malloc}}, već je za alokaciju memorije i samu inicijalizaciju zadužen pomoćni funkcijski obrazac \textbf{\textit{std::make\_unique}}\footnote{O obrascima pogledajte \hyperref[subsection:templates]{ovdje}.}. Ono što se zapravo događa u pozadini ovog koda može se opisati slijedećim pseudokodom:
+\lstset{language=C++, tabsize=2, frame=single, breaklines=true}
+\begin{lstlisting}
+
+int main()
+{
+    int* a = (int*)malloc(sizeof(int));
+    *a = 2;
+    return *a;
+    free(a); // Called after return.
+}
+\end{lstlisting}
+Ono što je zanimljivo vidjeti da je pseudokod efektivno jednak pravilno napisanom C programu, štoviše, još bolje izražava što korisnik želi, a to je vratiti vrijednost na koju pokazuje pokazivač \textbf{\textit{a}} i nakon toga odpustiti memoriju. Funkcijski, pravilno napisani C i C++ pseudokod su ekvivalentni i rezultirali bi jednakim prevedim kodom, međutim C++, odnosno C++ pseudo je ekspresivniji jer govori prevodiocu informaciju da se memorija odpušta nakon što se vrijednost na koju pokazuje pokazivač vrati iz funkcije, što nije moguće u programskom jeziku C. Ono s čim treba biti oprezan ovdje je činjenica da se kod izvršava nakon povratka iz funkcije, ovo nije istina, to je samo zgodan opis kada se destrukotor izvršava, međutim kao ni u C ni u C++ nije moguće eksplicitno izvršiti kod nakon povratka iz funkcije. \\
+Važno je reći da je primjer nadasve jednostavan i teško da bi iskusan programer napravio ovakvu grešku u ovom formatu, međutim ovakve greške su česta pojava u većim projektima i mehanizam destruktora omogućava automatsko odpuštanje resursa(u ovom primjeru resurs je memorja). Dodatno, primjer nema nikakvu primjenu u ovom obliku i ne smije se gledati kao ništa više nego edukacijski primjer. \\
+Zaključak ovdje je kako C++ nudi ekspresivniji i sigurniji mehanizam za izražavanje korisničke namjere. Ista funkcionalnost se može dobiti kombinirajući primitive programskog jezika C, međutim time se zamagljuje prava intencija programera i time kod biva sve kompleksniji. Kritika kako je poziv destruktora sakriven se može poistovjetiti sa time da i poziv slobodne funkcije u C-u sakriva ponašanje programa, međutim niti jedan C programer neće zbog te činjenice ne koristiti primitiv funkcije. Samim time što inženjer donosi odluku kako svoj softver piše uz pomoć programskog jezika C++ donosi odluku kako će za svaki konstruirani objekt na kraju njegova životnog ciklusa, ako on postoji, biti pozvan destruktor. Samom tom odlukom poziv destruktora postaje eksplicitan jer je poznato da će se uvijek pozvati, a time se i pobija argument kako se sakriva ponašanje. Dakako, postoji idalje argument da autori knjižnica pisanih u programskom jeziku C++ mogu unositi neočekivano ponašanje kroz destruktore, međutim to mogu i kroz obične funkcije. Jedini problem je to što je programerima teško osvjestiti postojanje destruktora, osvještavanje činjenice da postoje destruktori čini same destruktore eksplicitnima i time pobija argument da postoji implicitno, nevidljivo ponašanje. 
+
+\subsection{Mehanizmi statičkog polimorfizma}
+Statički polimorfizam je mogućnost tretiranja objekata različitih tipova kao da su isti tip na temelju sličnog ponašanja, međutim za razliku od dinamičkog polimorfizma koji razriješava ponašanje u vremenu izvođenja, statički polimorfizam razriješava ponašanje u vremenu prevođenja. Jednostavnije rečeno, prevodilac odlučuje u vremenu prevođenja koju funkciju će pozvati prevedeni program na osnovu konkretnih tipova koji su predani kao argumenti obrazca ili funkcije. Kako bi pobliže objasnili pojam statičkog polimorfizma pogledajmo nekoliko mehanizama s pripadajućim primjerima s kojima se takva vrsta polimorfizma može ostvariti. 
+
+\paragraph{Obrasci\engl{Templates}}\label{subsection:templates}
+U programskom jeziku C++ postoje dvije vrste obrazaca, funkcijski obrasci i razredni obrasci. O samom mehanizmu obrazca se može razmišljati kao normalnom kodu kojem na pojedinim mjestima nedostaje tip ili vrijednost. Ovakvo banalno objašnjenje je dovoljno za razumjevanje slijedećeg primjera koji pokazuje kako iskonstruirati i koristiti funkcijski obrazac.  
+\lstset{language=C++, tabsize=2, frame=single, breaklines=true}
+\begin{lstlisting}
+
+template<typename T>
+T add(T first, T second)
+{
+    return first + second;
+}
+
+int main()
+{
+    return add<int>(2, 3);
+}
+\end{lstlisting}
+U gore navedenom primjeru \textbf{\textit{add}} je funkcijski obrazac koji kao parametre uzima dva argumenta nekog tipa \textbf{\textit{T}} i vraća njihovu sumu. Na osnovu obrazca \textbf{\textit{add}} će se u vremenu prevođenja izgenerirati funkcije sa konkretnim tipom umjesto generičnog tipa \textbf{\textit{T}} ovisno o tome za koji tip će biti potrebno izgenerirati funkciju. U ovom primjeru poziv \textbf{\textit{add<int>(2, 3)}} govori prevodiocu kako je potrebno izgenerirati funkciju \textbf{\textit{add}} sa parametrom obrazca \textbf{\textit{T}} jednakim \textbf{\textit{int}}. Postvalja se pitanje "Zar nije ovaj kod mogao biti napisan i programskom jeziku C, bez funkcijskog obrazca?" i odgovor je svakako da je, međutim ono što je ovdje važno za uočiti da se iz funkcijskog obrasca \textbf{\textit{add}} mogu izgenerirati funkcije za bilo koji tip \textbf{\textit{T}} i to samo onda kada se koriti u korisničkom kodu. Dakle slijedeći kod pokušava ilustrirati prednost funkcijskih obrazaca naspram običnih C funkcija.
+\lstset{language=C++, tabsize=2, frame=single, breaklines=true}
+\begin{lstlisting}
+
+template<typename T>
+T add(T first, T second)
+{
+    return first + second;
+}
+
+int main()
+{
+    return add<int>(2, 3) + 
+           add<double>(2.0, 3.0) + 
+           add<float>(2.0f, 3.0f);
+}
+\end{lstlisting}
+Umjesto gornjeg C++ koda gotovo identičnu funkcionalnost je moguće postići u programskom jeziku C sa slijedećim kodom. Važno je napomenuti kako je slijedeći kod jedank kodu kojeg prevodilac izgenerira za gornji primjer.
+\lstset{language=C, tabsize=2, frame=single, breaklines=true}
+\begin{lstlisting}
+
+int add(int first, int second)
+{
+    return first + second;
+}
+
+double addf(doule first, double second)
+{
+    return first + second;
+}
+
+float addd(float first, float second)
+{
+    return first + second;
+}
+
+int main()
+{
+    return add(2, 3) + addd(2.0, 3.0) + addf(2.0f, 3.0f);
+}
+\end{lstlisting}
+Pažljivi čitatelj će zapaziti razliku između C i C++ koda, a to je da se sve funkcije u C programskom jeziku nužno moraju imati jedinstveno ime. Tako je ovdje funckija koja prima dva \textbf{\textit{int}}-a nazvana \textbf{\textit{add}}, funkcija koja prima dva \textbf{\textit{double}}-a nazvana \textbf{\textit{addd}} i funkcija koja prima dva \textbf{\textit{float}}-a nazvana \textbf{\textit{addf}}\footnote{Slični nazivi funkcija se mogu vidjeti u C standardnoj biblioteci.}. Razlog zašto u programskom jeziku C++ se funkcije mogu zvati jednako je tzv. preopterečivanje funkcija\footnote{O preopterečivanju funkcija pogledajte \hyperref[subsection:functionOverloading]{ovdje}.}. Osim navedene razlike kodovi su ekvivalentni u funkcionalnosti koju pružaju. U ovom primjeru se opet da zapaziti ekspresivnost i konciznost programskog jezika C++ koji omogućava da se operacija zbrajanja obuhvati s imenom "\textit{add}" neovisno o tipovima nad kojima sama funkcija manipulira. Samim davanjem jednog imena za operaciju smanjuje se komlpeksnost korisničkog koda s istom, ili boljom, razinom ekspresivnosti kao i ekvivalentna implementacija u programskom jeziku C. \\ 
+Valja napomenuti kako postoje i obrasci razreda, međutim zaključci za korištenje tog mehanizma bi bili jednaki pa je ovaj diplomski rad odlučio izostaviti diskusiju o obrascima razreda.
+
+\paragraph{Preopterečivanje funkcija\engl{Function overloading}}\label{subsection:functionOverloading}
+Mehanizam preopterečivanja funkcija omogućava da sa funkcija zove istim imenom međutim nudi mogućnost drugačije implementacije na osnovu tipova predanih argumenata. Kako bi se bolje ilustriralo o čemu je riječ pogledajmo primjer:
+\lstset{language=C++, tabsize=2, frame=single, breaklines=true}
+\begin{lstlisting}
+#include <iostream>
+
+void someFunction(int a)
+{
+    std::cout << "Int\n";
+}
+
+void someFunction(float a)
+{
+    std::cout << "Float\n";
+}
+
+int main()
+{
+    someFunction(2);    // Calls the one that
+                        // takes `int` as an argument. 
+    
+    someFunction(2.0f); // Calls the one that 
+                        // takes `float` as an argument. 
+}
+\end{lstlisting}
+Preopterečivanje je vrlo jednostavan i intuitivan mehanizam, s gornjim primjerom se pokušava ilustrirati kako će prvi poziv funkcije \textbf{\textit{someFunction(2)}} pozvati implementaciju funkcije \textbf{\textit{someFunction}} koja prima \textbf{\textit{int}} kao parametar, dok će drugi poziv pozvati implementaciju koja prima \textbf{\textit{float}} kao parametar. Ovaj jednostavan mehanizam omogućava grupaciju istih operacija, koji ne operiraju nužno nad identičnim tipovima, pod istim imenom, što je vrlo moćan alat u komplesnom softveru gdje nije nužno najbitnija činjenica koja funkcija od zadanih je točno pozvana. Ponovno se vraćamo na svojstvno ekspresije jezika C++ koje je definitivno više pogodno korisniku, a C programski jezik ne nudi ništa slično. Bitno je istaknuti kako preopterečivanje funkcija, iako je pogodan alat za korisničke abstrakcije, ne uvodi nikakvu dodatnu pesimizaciju - generirani kod je identičan kodu koji bi inženjer morao napisati ručno u programskom jeziku C samo bi funkcije trebao nazvati različitim imenima. 
+
+\paragraph{Koncepti\engl{Concepts}}
+Mehanizam koncepata nije mehanizam koji omogućava statički polimorfizam već oplemenjuje mehanizme statičkog polimorfizma. Mehanizam koncepta je efektivno predikat koji ispituje svojstva ugrađenog ili korisničkog tipa koji je evaluiran u vremenu prevođenja. Sa ovim mehanizmom moguće je napraviti tipsku introspekciju i dodatno specijalizirati algoritam ovisno o tipskim svojstvima. Prije uvođenja mehanizma koncepata, programski jezik C++ je mogao ostvariti tipsku introspekciju sa zlogalsnim mehanizmom \textit{SFINAE}\engl{Substitution Failure Is Not An Error}, koji je nadasve kompliciran i vrlo korisnički nepogodan za korištenje. Glavni razlog uvođenja koncepata u jezik je omogućiti programersku ekspresiju oko njegovih intencija. Ukoliko pogledamo slijedeći primjer, vidljivo je da funkcijski obrazac \textbf{\textit{firstCharacter}} ima smisla samo za tipove koji su poput tipa \textbf{\textit{std::string}}, međutim prevodilac nema nikakvu naznaku da bi se funkcijski obrazac trebao samo koristiti za takve tipove.
+\lstset{language=C++, tabsize=2, frame=single, breaklines=true}
+\begin{lstlisting}
+#include <string>
+#include <string_view>
+#inculde <vector>
+
+template<typename T>
+char firstCharacter(T& stringLike)
+{
+    return stringLike[0];
+}
+
+int main()
+{
+    std::string first = 
+        std::string("First");
+    std::string_view second = 
+        std::string_view("Second");
+    const char* third = "Third";
+    std::vector<int> fourth = 
+        std::vector<int>({1, 2, 3, 4, 5});
+
+    char char1 = firstCharacter(first);  
+        // `char1` is "F".
+    
+    char char2 = firstCharacter(second); 
+        // `char2` is "S".
+    
+    char char3 = firstCharacter(third);  
+        // `char3` is "T".
+    
+    char char4 = firstCharacter(fourth); 
+        // `char3` is 1. // This should not compile.
+
+    return 0; 
+}
+\end{lstlisting}
+Pošto prevodilac ne može znati da bi \textbf{\textit{firstCharacter}} trebao biti korišten samo sa tipovima sličnim \textbf{\textit{std::string}}-u, funkcija može biti i istancirana i sa nekim drugim tipom poput \textbf{\textit{std::vector<int>}}. Ovo je nešto što je neželjeno ponašanje i koncepti nam ovdje mogu pomoći na slijedeći način:
+\lstset{language=C++, tabsize=2, frame=single, breaklines=true}
+\begin{lstlisting}
+#include <string>
+#include <string_view>
+#inculde <vector>
+#include <concepts>
+
+template<typename T>
+concept StringLike = 
+    std::same_as<T, std::string> || 
+    std::same_as<T, std::string_view> || 
+    std::same_as<T, const char*>;
+
+template<typename T>
+requires StringLike<T>
+char firstCharacter(T& stringLike)
+{
+    return stringLike[0];
+}
+
+int main()
+{
+    std::string first = 
+        std::string("First");
+    std::string_view second = 
+        std::string_view("Second");
+    const char* third = "Third";
+    std::vector<int> fourth = 
+        std::vector<int>({1, 2, 3, 4, 5});
+
+    char char1 = firstCharacter(first);  
+        // `char1` is "F".
+    char char2 = firstCharacter(second); 
+        // `char2` is "S".
+    char char3 = firstCharacter(third); 
+        // `char3` is "T".
+    char char4 = firstCharacter(fourth); 
+        // Now this does NOT compile.
+
+    return 0; 
+}
+\end{lstlisting}
+U gornjem primjeru definirali smo jednostavan koncept koji je efektivno predikat koji je istinit ako je dani tip \textbf{\textit{T}} jednak \textbf{\textit{std::string}}, \textbf{\textit{std::string\_view}} ili \textbf{\textit{const char*}}, inače je neistinit. Ukoliko koncept nije zadovoljen, funkcijski obrazac \textbf{\textit{firstCharacter}} neće biti moguće istancirati sa zadanim tipom i prevodilac će javiti grešku u vremenu prevođenja. Tako u gornjem primjeru nije moguće pozvati \textbf{\textit{firstCharacter}} sa \textbf{\textit{std::vector<int>}} substituiranim kao \textbf{\textit{T}}. Mehanizam koncepata iako nije mehanizam statičkog polimorfizma je usko povezan s njima te ponovno dijeli osobinu ekspresije koja uvelike poboljšava kvalitetu i sigurnost koda u modernim kompleksnim sustavima. 
+
+\subsection{Stroga tipizacija}
+Kada se priča o strogoj tipizaciji govori se tome da ne postoje mehanizmi, ili ih je jako malo, kojima se mogu uvesti neželjene konverzije između tipova. Programski jezik C++ je poznat po tome što ima vrlo strogu tipizaciju te je vrlo teško napraviti neželjene konverzije, štoviše, postoje mehanizmi jezika kojima se omogućuje eksplicitno zabranjivanje pojedinih implicitnih konverzija. S druge strane, također postoje određene implicitne konverzije između tipova koje postoje kako bi se olakšala čitljivost samog koda, međutim povijesno gledano mnogi bi rekli kako je i tih par praktičnih konverzija opasnost koja uvodi mogućnost greške. S tim rečenim, velika večina jezika C++ je bazirana na vrlo strogoj tipizaciji što je pogotovo vidljivo na korisničkim tipovima. Stroga tipizacija nije odlika programskog jezika C i zbog te činjenice postoje mnoge prilike za uvođenje vrlo teško uočljivih pogrešaka. Slijedeći primjer ilustrira jednu od takvih pogrešaka.
+\lstset{language=C, tabsize=2, frame=single, breaklines=true}
+\begin{lstlisting}
+
+int functionTwo(int* p)
+{
+    return *p;
+}
+
+int functionOne(void* p)
+{
+    return functionTwo(p);
+}
+
+int main()
+{
+    short n = 1;
+    return functionOne(&n);
+}
+\end{lstlisting}
+Gornji primjer ilustrira pogrešku koju je vrlo teško dijagnosticirati, pomni čitaoc će uvidjeti kako se u funkciju \textbf{\textit{functionOne}} predaje pokazivač na \textbf{\textit{short}} koji se implicitno konvertira u pokazivač na \textbf{\textit{void}} što je benigna konverzija sama po sebi. Pogreška je nakon toga taj pokazivač tretirati kao pokazivač na \textbf{\textit{int}} i derefencirati ga, što je napravljeno u \textbf{\textit{functionTwo}}. Razlog zašto je ovo greška je taj što tipovi \textbf{\textit{short}} i \textbf{\textit{int}} nikada nisu iste veličine, štoviše, \textbf{\textit{short}} je uvijek kraći od \textbf{\textit{int}}. Time što se memorija na kojoj se nalazi \textbf{\textit{short}} dereferencirana kao memorija na kojoj se nalazi \textbf{\textit{int}} se čita memoriju koja nije inicijalizirana i time čini program nepredvidivim i krivim. Istina je kako je sličan kod u ponekim aplikacijama potreban, međutim problem leži u implicitnosti konverzija. Za prevođenje ovakvog koda uz pomoć C prevodioca korisnik nebi dobio niti upozorenje jer je ovo sasvim validan C kod i to je ono što bi svakog inženjera trebalo zabrinuti. Ono što programski jezik C++ uvodi je eksplicitnu konverziju između tipova pokazivača i to na nekoliko načina ovisno o ozbiljnosti konverzije. U ovom slučaju korisnik programskog jezika C++ bi bio primoran eksplicitno konvertirati pokazivače ili običnom C konverzijom("\textbf{\textit{return functionTwo((int*)p)}}") ili koristiti preporučeni način konverzije uz pomoć, u ovom slučaju, \textbf{\textit{reinterpret\_cast}}-a("\textbf{\textit{return functionTwo(reinterpret\_cast<int*>(p))}}"). Ovime se nebi riješio inicijalni problem i program bi idalje bio kriv, međutim bilo bi lakše za diagnosticirati grešku jer bi korisnik trebao pregledati samo sve nesigurne konverzije koje su napravljene sa korištenjem \textbf{\textit{reintrepret\_cast}}-a. Unutar prosječne aplikacije pisane uz pomoć programskog jezika C++ večina eksplicitnih konverzija je moguća bez korištenja \textbf{\textit{reinterpret\_cast}}-a, a slučajevi u kojima je takva konverzija potrebna su generalno dobro osigurani drugim mehanizmima. Čak i u slučaju da je \textbf{\textit{reinterpret\_cast}} korišten u kontekstu gdje točnost programa nije osigurana nekim drugim mehanizmom idalje programer ima moguće opasne konverzije izolirane na način da samo treba pretražiti kod u potrazi za \textbf{\textit{reinterpret\_cast}}-om. Na kraju valja napomenuti kako korištenje \textbf{\textit{reinterpret\_cast}}-a umjesto obične C konverzije ne donosi nikakvu pesimizaciju u krajnji proizvod, štoviše, \textbf{\textit{reinterpret\_cast}} se ponaša jednako kao i obična C konverzija samo omogućava drugo ime kako bi izrazilo kako je ova konverzija potencijalno nesigurna. 
+
+\subsection{Standardni kontejneri}
+Standardni kontejneri predstavljaju skup razreda i algoritama koji su dio C++ standardne knjižnice i omogućavaju funkcionalnosti za lakše rukovanje s kolekcijama podataka. Sami kontejneri su implementirani od strane autora prevodilaca što implicira da su visoko optimizirani. Iako su ovdje navedeni samo standardni kontejneri kao funkcionalnost koju nude moderne tehnologije zapravo je glavna funkcionalnost veća podrška standardne biblioteke koja dolazi u razvojnom paketu koju programski jezik C nema razrađenu do mjere do koje programski jezik C++ ima. Programski jezik C++ u svojoj standardnoj biblioteci ima mnoge korisne razredne obrasce poput \textbf{\textit{std::array}}, \textbf{\textit{std::vector}}, \textbf{\textit{std::map}}, \textbf{\textit{std::set}}, itd. dok programski jezik C ne nudi nikakvu sličnu alternativu. Istina je kako neki od ponuđenih kontejnera nisu iskoristivi u određenim kontekstima domene ugradbenih uređaja, zbog zahtjeva dinamičke memorijske alokacije, međutim dizajnirani su na način da se mogu koristiti ukoliko se ponudi prihvatljivi memorijski alokator. Dodatno, standardni kojntejneri su odlično dokumentirani što uvelike pomaže u njihovom korištenju. Vrlo dobro razrađene standardne biblioteke su velika funkcionalnost koju programski jezik C++ nudi bez ikakvih vanjskih ovisnosti, dok mnoge starije tehnologije ostavljaju izradu takve funckcionalnosti na svojim korisnicima.  
