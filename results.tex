@@ -1,2 +1,50 @@
 \chapter{Rezultati}
-Something.
+
+\begin{table}[htb]
+\caption{Rezultati mjerenja}
+\label{table:results}
+\centering
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|r|l|l|l|l|l|l|} 
+\hline
+\rowcolor[rgb]{0.827,0.843,0.812} \multicolumn{1}{|c|}{\textbf{Compile mode}}                                               & \multicolumn{3}{c|}{\textbf{Debug }}                                                                                      & \multicolumn{3}{c|}{\textbf{Release }}                                                                                     \\ 
+\hline
+\rowcolor[rgb]{0.827,0.843,0.812} \multicolumn{1}{|c|}{\textbf{Technology}}                                                 & \multicolumn{2}{c|}{\textbf{C++}}                                               & \multicolumn{1}{c|}{\textbf{C}}         & \multicolumn{2}{c|}{\textbf{C++ }}                                              & \multicolumn{1}{c|}{\textbf{C}}          \\ 
+\hline
+\rowcolor[rgb]{0.827,0.843,0.812} \multicolumn{1}{|c|}{\textbf{Driver mode}}                                                & \multicolumn{1}{c|}{\textbf{Interrupt}} & \multicolumn{1}{c|}{\textbf{Polling}} & \multicolumn{1}{c|}{\textbf{Interrupt}} & \multicolumn{1}{c|}{\textbf{Interrupt}} & \multicolumn{1}{c|}{\textbf{Polling}} & \multicolumn{1}{c|}{\textbf{Interrupt}}  \\ 
+\hline
+\multicolumn{1}{|c|}{{\cellcolor[rgb]{0.827,0.843,0.812}}\textbf{Program size[kB]}}                                         & 983                                     & 983                                   & 946                                     & 827                                     & 826                                   & 833                                      \\ 
+\hline
+\rowcolor[rgb]{0.827,0.843,0.812} \multicolumn{1}{|c|}{\textbf{Program execution time[$\mu$s]}}                                   &                                         &                                       &                                         &                                         &                                       &                                          \\ 
+\hline
+{\cellcolor[rgb]{0.953,0.953,0.953}}1                                                                                       & 27797                                   & 27883                                 & 27450                                   & 27141                                   & 27147                                 & 27157                                    \\ 
+\hline
+{\cellcolor[rgb]{0.953,0.953,0.953}}2                                                                                       & 27816                                   & 28263                                 & 27551                                   & 27117                                   & 27170                                 & 27135                                    \\ 
+\hline
+{\cellcolor[rgb]{0.953,0.953,0.953}}3                                                                                       & 27832                                   & 27883                                 & 27598                                   & 27139                                   & 27147                                 & 27125                                    \\ 
+\hline
+{\cellcolor[rgb]{0.953,0.953,0.953}}4                                                                                       & 27810                                   & 27888                                 & 27441                                   & 27135                                   & 27139                                 & 27120                                    \\ 
+\hline
+{\cellcolor[rgb]{0.953,0.953,0.953}}5                                                                                       & 27818                                   & 27948                                 & 27499                                   & 27142                                   & 27165                                 & 27132                                    \\ 
+\hline
+{\cellcolor[rgb]{0.953,0.953,0.953}}6                                                                                       & 27842                                   & 27879                                 & 27495                                   & 27144                                   & 27172                                 & 27122                                    \\ 
+\hline
+{\cellcolor[rgb]{0.953,0.953,0.953}}7                                                                                       & 27834                                   & 27871                                 & 27470                                   & 27141                                   & 27171                                 & 27207                                    \\ 
+\hline
+{\cellcolor[rgb]{0.953,0.953,0.953}}8                                                                                       & 27791                                   & 27866                                 & 27502                                   & 27145                                   & 27161                                 & 27117                                    \\ 
+\hline
+{\cellcolor[rgb]{0.953,0.953,0.953}}9                                                                                       & 27787                                   & 27866                                 & 27501                                   & 27129                                   & 27146                                 & 27113                                    \\ 
+\hline
+{\cellcolor[rgb]{0.953,0.953,0.953}}10                                                                                      & 27797                                   & 27884                                 & 27474                                   & 27136                                   & 27153                                 & 27139                                    \\ 
+\hline
+\rowcolor[rgb]{0.953,0.953,0.953} \multicolumn{1}{|c|}{{\cellcolor[rgb]{0.827,0.843,0.812}}\textbf{Avarage execution time}} & 27812.40                                & 27923.10                              & 27498.10                                & 27136.90                                & 27157.10                              & 27136.70                                 \\ 
+\hline
+\rowcolor[rgb]{0.953,0.953,0.953} \multicolumn{1}{|c|}{{\cellcolor[rgb]{0.827,0.843,0.812}}\textbf{Deviation}}              & 19.31                                   & 121.70                                & 46.85                                   & 8.45                                    & 12.16                                 & 27.82                                    \\
+\hline
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+Iznad je prikazana \hyperref[table:results]{tablica} sa rezultatima mjerenja vremena izvođenja konkeksta koji koristi uređaj za generiranje slučajnih brojeva uz pomoć upravljačkih uređaja. Jedan primjer koristi upravljački program koji je implementiran uz pomoć programskog jezika C, a drugi upravljački program implementiran uz pomoć programskog jezika C++. Iz tablice se može vidjeti i veličine pojednih program, točnije prikazane su veličine \textit{ELF}\footnote{\textit{ELF\engl{Executalble and Linkable Format}} je format izvršnih datoteka koji se koristi na \textit{UNIX} operacijskim sustavima poput \textit{Linux} operacijskog sustava.} izvršnih datoteka i te veličine su samo proporcionalne veličini stvarnog programa na mikrokontroleru, odnono, veličine se mogu jedino uspoređivati međusobno međutim ne predstavljaju absolutne veličine programa stavljenog na sam mikrokontroler. Iz tablice je također vidljivo kako je za svaki kontekst, u svrhu mjerenja vremena izvršavanja, napravljeno 10 nezavisnih mjerenja te je naposlijetku izražena srednja vrijednost i standardna devijacija svakog konteksta mjerenja. Cijeli proces je ponovljen za dva načina prevođenja, \textit{Debug} i \textit{Release}. Valja ponovno istaknuti kako vremena u tablici mjere izvršavanje konstuiranog primjera, objašnjenog u predhodnom poglavlju, a ne samu brzinu generiranja slučajnih brojeva od strane samog perifernog uređaja, jer takvo mjerenje mjerilo samo nedeterminističnost samog perifernog uređaja, a ne brzinu izvršavanja napisanog softvera.
+
+    
