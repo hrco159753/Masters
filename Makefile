@@ -5,5 +5,9 @@ all: diplomski.tex fer.bst fer.cls literatura.bib
 	pdflatex --output-directory=build $<
 	pdflatex --output-directory=build $<
 
+package_latex: conclusions.tex diplomski.tex introduction.tex modern_vs_old.tex my_benchmark.tex noncited_literature.tex results.tex fer.cls fer.bst literatura.bib
+	zip source_text.zip $^
+
 clean:
-	rm -rf build
+	rm -rf build source_text.zip
+
